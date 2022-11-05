@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/IntroLabel.gd" type="Script" id=1]
+[ext_resource path="res://scenes/fonts/BlackRose-2Onld.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 60
+outline_color = Color( 0.960784, 0.0823529, 0.0823529, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+outline_color = Color( 0.960784, 0.541176, 0.0470588, 1 )
+font_data = ExtResource( 2 )
+
+[node name="IntroScene" type="Node2D"]
+
+[node name="IntroPanel" type="Panel" parent="."]
+modulate = Color( 0.745098, 0.258824, 0.258824, 1 )
+margin_right = 1025.0
+margin_bottom = 600.0
+
+[node name="IntroRect" type="ColorRect" parent="IntroPanel"]
+self_modulate = Color( 0.137255, 0.376471, 0.870588, 1 )
+margin_left = -1.0
+margin_top = -1.0
+margin_right = 1023.0
+margin_bottom = 599.0
+color = Color( 0.101961, 0.360784, 0.662745, 1 )
+
+[node name="IntroLabel" type="RichTextLabel" parent="IntroPanel/IntroRect"]
+margin_left = 175.0
+margin_top = 112.0
+margin_right = 821.0
+margin_bottom = 536.0
+custom_fonts/normal_font = SubResource( 1 )
+text = "
+		Pirate  R'  Rush"
+scroll_active = false
+script = ExtResource( 1 )
+text_color = Color( 0.905882, 0.101961, 0.0392157, 1 )
+
+[node name="StartButton" type="Button" parent="IntroPanel/IntroRect"]
+anchor_top = 1.591
+anchor_bottom = 1.591
+margin_left = 282.0
+margin_top = -625.6
+margin_right = 449.0
+margin_bottom = -535.6
+rect_pivot_offset = Vector2( 160, 61 )
+custom_fonts/font = SubResource( 2 )
+shortcut_in_tooltip = false
+button_mask = 2
+text = "Start"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="HTP_Button" type="Button" parent="IntroPanel/IntroRect"]
+anchor_top = 1.591
+anchor_bottom = 1.591
+margin_left = 540.0
+margin_top = -624.6
+margin_right = 707.0
+margin_bottom = -534.6
+rect_pivot_offset = Vector2( 160, 61 )
+custom_fonts/font = SubResource( 2 )
+shortcut_in_tooltip = false
+button_mask = 2
+text = "How To Play"
+__meta__ = {
+"_editor_description_": ""
+}
