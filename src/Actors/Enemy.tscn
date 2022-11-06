@@ -9,6 +9,7 @@ extents = Vector2( 13.5, 20 )
 [node name="Enemy" type="KinematicBody2D"]
 collision_mask = 8
 script = ExtResource( 2 )
+speed = Vector2( 100, 1000 )
 
 [node name="enemy" type="Sprite" parent="."]
 position = Vector2( -1, -18 )

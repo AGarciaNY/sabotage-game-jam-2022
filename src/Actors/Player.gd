@@ -3,9 +3,17 @@ extends Actor
 
 func _physics_process(delta: float) -> void:
 	var is_jump_interrupted: = Input.is_action_just_released("jump") and _velocity.y < 0.0
+	var is_runing: = Input.get_action_strength("speedRun")
+	var stop_runing: = Input.is_action_just_released("speedRun")
+	if is_runing == 1.0:
+		speed.x = 600
+	else :
+		speed.x = 300
+	
 	var direction: = get_direction()
 	_velocity = calculate_move_velocity(_velocity, speed, direction, is_jump_interrupted)
 	_velocity = move_and_slide(_velocity, FLOOR_NORMAL)
+	
 
 
 func get_direction() -> Vector2:
