@@ -25,3 +25,7 @@ position = Vector2( 0, -18 )
 scale = Vector2( 0.7, 1.8 )
 process_parent = true
 physics_process_parent = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
