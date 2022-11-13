@@ -3,7 +3,13 @@ extends Area2D
 var speed = 75
 export(int) var susLevleHere = 1
 var susLevleTwo = susLevleHere
-
+var takeHelth = false
+var _timer = Timer.new()
+func _ready():
+	add_child(_timer)
+	_timer.connect("timeout",self,"sus_update")
+	_timer.set_wait_time(1.0)
+	_timer.set_one_shot(false)
 func _physics_process(delta):
 	var velocity = Vector2(
 		int(Input.get_action_strength("move_right")) - int(Input.get_action_strength("move_left")),
@@ -15,16 +21,16 @@ func _physics_process(delta):
 
 
 func _on_Area2D_area_entered(area):
-	var _timer = Timer.new()
-	add_child(_timer)
-	
-	_timer.connect("timeout",self,"sus_update")
-	_timer.set_wait_time(1.0)
-	_timer.set_one_shot(false)
 	_timer.start()
-	print(susLevleHere)
+	print(susLevleHere,takeHelth)
 	pass # Replace with function body.
 
 func sus_update():
 	susLevleHere += 1
 	$SusP.set_percent_value_int(susLevleHere)
+
+
+func _on_Area2D_area_exited(area):
+	_timer.stop()
+	print(susLevleHere,takeHelth)
+	pass # Replace with function body.
